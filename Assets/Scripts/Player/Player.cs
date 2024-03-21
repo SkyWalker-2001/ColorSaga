@@ -1,9 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField ]private Player_Controller controller;
+
+    public static Player player_Instance;
+
+    private void Awake()
+    {
+        player_Instance = this;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Destroy(collision.gameObject);
@@ -22,5 +32,15 @@ public class Player : MonoBehaviour
         {
             Fruit_Manager.fruit_Manager_Instance.CheckCorrectFruit(3);
         }
+    }
+
+    public void Die()
+    {
+        this.gameObject.SetActive(false);
+        Time.timeScale = 0;
+
+        ScoreManager.scoreManager_Instance.SaveScore();
+
+        SceneManager.LoadScene("EndScreen");
     }
 }

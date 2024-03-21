@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Fruit_Manager : MonoBehaviour
@@ -9,6 +7,10 @@ public class Fruit_Manager : MonoBehaviour
     [SerializeField] private int random_FruitCode; // 1 = Apple, 2 = Banana, 3 = BlueBErry 
 
     [SerializeField] private float FruitChangeTime;
+    
+    [SerializeField] private Sprite[] fruits_Images;
+
+    [SerializeField] private SpriteRenderer fruit_SpriteRenderer;
 
     private void Awake()
     {
@@ -22,6 +24,11 @@ public class Fruit_Manager : MonoBehaviour
         InvokeRepeating("RandomCodeGenerator", FruitChangeTime, FruitChangeTime);
     }
 
+    private void FixedUpdate()
+    {
+        fruit_SpriteRenderer.sprite = fruits_Images[random_FruitCode - 1];
+    }
+
     private void RandomCodeGenerator()
     {
         random_FruitCode = Random.Range(1,4);
@@ -29,24 +36,16 @@ public class Fruit_Manager : MonoBehaviour
 
     public void CheckCorrectFruit(int Fruit_CodeNumber)
     {
-        if(Fruit_CodeNumber == 1)
+        if(Fruit_CodeNumber == random_FruitCode)
         {
-            Debug.Log("Apple IS HITTED");        
-        }
+            Debug.Log("SAME number");
 
-        else if(Fruit_CodeNumber == 2)
-        {
-            Debug.Log("Banana IS HITTED");
-        }
-
-        else if(Fruit_CodeNumber == 3)
-        {
-            Debug.Log("BlueBerry IS HITTED");
+            ScoreManager.scoreManager_Instance.AddCoin(5);
         }
 
         else
         {
-            Debug.Log("NO CODE PASS // Error in Fruit Manager CheckCorrectFruit FN");
+            Player.player_Instance.Die();
         }
     }
 }
