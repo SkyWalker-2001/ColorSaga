@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        GameObject Fruits = Instantiate(Fruits_Prefabs[Random.RandomRange(0, Fruits_Prefabs.Length)]) as GameObject;
+        GameObject Fruits = Instantiate(Fruits_Prefabs[Random.Range(0, Fruits_Prefabs.Length)]) as GameObject;
 
         Fruits.transform.position = new Vector2(Random.Range(_box_Collider.bounds.min.x, _box_Collider.bounds.max.x),transform.position.y);
 

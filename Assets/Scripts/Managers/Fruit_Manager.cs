@@ -40,7 +40,7 @@ public class Fruit_Manager : MonoBehaviour
         {
             Debug.Log("SAME number");
 
-            ScoreManager.scoreManager_Instance.AddCoin(5);
+            ScoreManager.scoreManager_Instance.AddCoin(1);
         }
 
         else

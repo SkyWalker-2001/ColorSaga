@@ -36,11 +36,8 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        this.gameObject.SetActive(false);
         Time.timeScale = 0;
-
         ScoreManager.scoreManager_Instance.SaveScore();
-
-        SceneManager.LoadScene("EndScreen");
+        Revive_Manager.revive_Manager_Instance.Activate_Revive_Screen_Panel();
     }
 }

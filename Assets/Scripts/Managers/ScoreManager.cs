@@ -12,8 +12,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI score_Text;
     [SerializeField] private TextMeshProUGUI coin_Text;
 
-    private int score;
-    private int high_Score;
+    private float score;
     private int coin;
 
     private void Awake()
@@ -26,15 +25,18 @@ public class ScoreManager : MonoBehaviour
         score = 0;
         coin = 0;
 
-        score_Text.text = "0";
-
     }
 
     private void Update()
     {
-        Score_Mechanics();
 
         Coin_Mechanics();
+    }
+
+    private void FixedUpdate()
+    {
+        Score_Mechanics();
+
     }
 
     public void AddCoin(int coin_Amount)
@@ -44,25 +46,29 @@ public class ScoreManager : MonoBehaviour
 
     private void Coin_Mechanics()
     {
-        coin_Text.text = "Coins: "+ coin.ToString();
+        coin_Text.text = $"{coin}" + " :Coin";
     }
 
     private void Score_Mechanics()
     {
-        score += 1;
+        score += 1 * Time.fixedDeltaTime;
 
-        score_Text.text = $"{score}";
+        score_Text.text = $"{score:0}" + " :Score";
     }
 
     public void SaveScore()
     {
-        PlayerPrefs.SetInt("Score" + SceneManager.GetActiveScene().name, score);
-        int highScore = PlayerPrefs.GetInt("High_Score" + SceneManager.GetActiveScene().name, 0);
+        PlayerPrefs.SetFloat("Score" + SceneManager.GetActiveScene().name, score);
+        float highScore = PlayerPrefs.GetInt("High_Score" + SceneManager.GetActiveScene().name, 0);
 
         if (score > highScore)
         {
-            PlayerPrefs.SetInt("High_Score" + SceneManager.GetActiveScene().name, score);
+            PlayerPrefs.SetFloat("High_Score" + SceneManager.GetActiveScene().name, score);
         }
+
+        PlayerPrefs.SetInt("Coin" + SceneManager.GetActiveScene().name, coin);
+
+        coin = 0;
 
     }
 }
