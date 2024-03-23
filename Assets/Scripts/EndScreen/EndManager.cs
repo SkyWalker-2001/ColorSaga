@@ -13,11 +13,11 @@ public class EndManager : MonoBehaviour
     private void Start()
     {
 
-        int highScore_Pref = PlayerPrefs.GetInt("High_ScoreGamePlay", 0);
-        int score_Pref = PlayerPrefs.GetInt("ScoreGamePlay", 0);
+        float highScore_Pref = PlayerPrefs.GetFloat("High_ScoreGamePlay", 0);
+        float score_Pref = PlayerPrefs.GetFloat("ScoreGamePlay", 0);
 
-        HighScore_Text.text = "HighSCore: " + highScore_Pref.ToString();
-        Score_Text.text = "Score:" + score_Pref.ToString();
+        HighScore_Text.text = "HighSCore: " + $"{highScore_Pref:0}";
+        Score_Text.text = "Score:" + $"{score_Pref:0}";
     }
 
 
