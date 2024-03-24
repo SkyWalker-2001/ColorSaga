@@ -29,6 +29,7 @@ public class Panel_Manager : MonoBehaviour
         BG_Sound.Stop();
 
         ad_Button.gameObject.SetActive(true);
+        resume_Button.gameObject.SetActive(false);
 
         Time.timeScale = 0;
     }
@@ -51,6 +52,7 @@ public class Panel_Manager : MonoBehaviour
     public void Resume_Button()
     {
         Deactivate_Panel_Screen_Panel();
+        RewardedAdController.rewardedAdController.LoadAd();
     }
 
     public void AD_Button()
