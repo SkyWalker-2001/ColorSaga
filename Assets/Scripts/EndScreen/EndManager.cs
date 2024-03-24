@@ -13,7 +13,7 @@ public class EndManager : MonoBehaviour
         float highScore_Pref = PlayerPrefs.GetFloat("High_ScoreGamePlay", 0);
         float score_Pref = PlayerPrefs.GetFloat("ScoreGamePlay", 0);
 
-        HighScore_Text.text = "HighSCore: " + $"{highScore_Pref:0}";
+        HighScore_Text.text = "HighScore: " + $"{highScore_Pref:0}";
         Score_Text.text = "Score: " + $"{score_Pref:0}";
     }
 
