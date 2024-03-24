@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI coin_Text;
 
     private float score;
-    private int coin;
+    public int coin;
 
     private void Awake()
     {
@@ -47,7 +47,7 @@ public class ScoreManager : MonoBehaviour
     {
         score = score + 1 * Time.fixedDeltaTime;
 
-        score_Text.text = $"{score:0}";
+        score_Text.text = "Score: " + $"{score:0}";
     }
 
     public void SaveScore()
@@ -60,7 +60,6 @@ public class ScoreManager : MonoBehaviour
             PlayerPrefs.SetFloat("High_Score" + SceneManager.GetActiveScene().name, score);
         }
 
-        score = 0;
-
+        PlayerPrefs.SetInt("Coin" + SceneManager.GetActiveScene().name, coin);
     }
 }

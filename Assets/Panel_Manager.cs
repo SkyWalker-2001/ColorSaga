@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,6 +16,9 @@ public class Panel_Manager : MonoBehaviour
     [SerializeField] private Button resume_Button;
     [SerializeField] private Button ad_Button;
 
+    [Header("CoinTextHandler")]
+    [SerializeField] private TextMeshProUGUI coin_TMP;
+
 
     private void Awake()
     {
@@ -27,6 +31,8 @@ public class Panel_Manager : MonoBehaviour
         Player.SetActive(false);
 
         BG_Sound.Stop();
+
+        coin_TMP.text = ScoreManager.scoreManager_Instance.coin.ToString();
 
         ad_Button.gameObject.SetActive(true);
         resume_Button.gameObject.SetActive(false);
@@ -62,7 +68,10 @@ public class Panel_Manager : MonoBehaviour
 
     public void UseCoin_Button()
     {
-        Deactivate_Panel_Screen_Panel();
+        int coin_Pref = PlayerPrefs.GetInt("CoinGamePlay", 0);
+        
+        if(coin_Pref >= 50)
+            Deactivate_Panel_Screen_Panel();
     }
 
     public void EndScreen_Button()

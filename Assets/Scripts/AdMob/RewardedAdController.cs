@@ -101,9 +101,11 @@ public class RewardedAdController : MonoBehaviour
 
         // Inform the UI that the ad is not ready.
         AdLoadedStatus?.SetActive(false);
+
         Resume_Button.SetActive(true);
 
     }
+
 
     /// <summary>
     /// Destroys the ad.
@@ -119,7 +121,7 @@ public class RewardedAdController : MonoBehaviour
 
         // Inform the UI that the ad is not ready.
         AdLoadedStatus?.SetActive(false);
-        Resume_Button.SetActive(true);
+        //Resume_Button.SetActive(true);
 
     }
 
