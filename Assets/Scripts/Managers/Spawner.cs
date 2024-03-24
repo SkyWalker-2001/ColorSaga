@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -14,7 +13,7 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-       _box_Collider = GetComponent<Collider2D>();
+        _box_Collider = GetComponent<Collider2D>();
 
         StartCoroutine(asteroidWave());
     }
@@ -23,7 +22,7 @@ public class Spawner : MonoBehaviour
     {
         GameObject Fruits = Instantiate(Fruits_Prefabs[Random.RandomRange(0, Fruits_Prefabs.Length)]) as GameObject;
 
-        Fruits.transform.position = new Vector2(Random.Range(_box_Collider.bounds.min.x, _box_Collider.bounds.max.x),transform.position.y);
+        Fruits.transform.position = new Vector2(Random.Range(_box_Collider.bounds.min.x, _box_Collider.bounds.max.x), transform.position.y);
 
     }
 

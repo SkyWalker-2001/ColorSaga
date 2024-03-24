@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -43,7 +40,7 @@ public class ScoreManager : MonoBehaviour
 
     private void Coin_Mechanics()
     {
-        coin_Text.text = "Coins: "+ coin.ToString();
+        coin_Text.text = "Coins: " + coin.ToString();
     }
 
     private void Score_Mechanics()
@@ -62,6 +59,8 @@ public class ScoreManager : MonoBehaviour
         {
             PlayerPrefs.SetFloat("High_Score" + SceneManager.GetActiveScene().name, score);
         }
+
+        score = 0;
 
     }
 }

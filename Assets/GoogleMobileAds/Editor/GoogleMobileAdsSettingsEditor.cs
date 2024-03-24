@@ -46,10 +46,10 @@ namespace GoogleMobileAds.Editor
 
             var settings = (GoogleMobileAdsSettings)target;
 
-            if(settings == null)
+            if (settings == null)
             {
-              UnityEngine.Debug.LogError("GoogleMobileAdsSettings is null.");
-              return;
+                UnityEngine.Debug.LogError("GoogleMobileAdsSettings is null.");
+                return;
             }
 
             EditorGUILayout.LabelField("Google Mobile Ads App ID", EditorStyles.boldLabel);
@@ -77,8 +77,8 @@ namespace GoogleMobileAds.Editor
             if (settings.EnableKotlinXCoroutinesPackagingOption)
             {
                 EditorGUILayout.HelpBox(
-                        "Adds instruction to fix a build.gradle build error with message"+
-                        " '2 files found with path 'META-INF/kotlinx_coroutines_core.version'."+
+                        "Adds instruction to fix a build.gradle build error with message" +
+                        " '2 files found with path 'META-INF/kotlinx_coroutines_core.version'." +
                         " For more details see https://developers.google.com/admob/unity/gradle",
                         MessageType.Info);
             }
@@ -97,7 +97,8 @@ namespace GoogleMobileAds.Editor
 
             EditorGUILayout.PropertyField(_optimizeInitialization,
                                           new GUIContent("Optimize initialization"));
-            if (settings.OptimizeInitialization) {
+            if (settings.OptimizeInitialization)
+            {
                 EditorGUILayout.HelpBox(
                         "Initialization will be offloaded to a background thread.",
                         MessageType.Info);
@@ -106,7 +107,8 @@ namespace GoogleMobileAds.Editor
             EditorGUILayout.PropertyField(_optimizeAdLoading,
                                           new GUIContent("Optimize ad loading"));
 
-            if (settings.OptimizeAdLoading) {
+            if (settings.OptimizeAdLoading)
+            {
                 EditorGUILayout.HelpBox(
                         "Ad loading tasks will be offloaded to a background thread.",
                         MessageType.Info);
@@ -123,7 +125,8 @@ namespace GoogleMobileAds.Editor
             EditorGUILayout.PropertyField(_delayAppMeasurement,
                                           new GUIContent("Delay app measurement"));
 
-            if (settings.DelayAppMeasurementInit) {
+            if (settings.DelayAppMeasurementInit)
+            {
                 EditorGUILayout.HelpBox(
                         "Delays app measurement until you explicitly initialize the Mobile Ads SDK or load an ad.",
                         MessageType.Info);

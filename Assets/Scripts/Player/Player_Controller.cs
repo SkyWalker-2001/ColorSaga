@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -57,7 +55,7 @@ public class Player_Controller : MonoBehaviour
         }
     }
 
-   
+
     private void ClearMotion()
     {
         character_RigidBody2D.velocity = Vector2.zero;
@@ -65,19 +63,19 @@ public class Player_Controller : MonoBehaviour
 
     private void RunCharacter(float horizontalInput)
     {
-        if(character_RigidBody2D.velocity.x >= 3)
+        if (character_RigidBody2D.velocity.x >= 3)
         {
-            character_RigidBody2D.velocity = new Vector2(3,0);
-            return;
-        }
-        
-        if(character_RigidBody2D.velocity.x <= -3)
-        {
-            character_RigidBody2D.velocity = new Vector2(-3,0);
+            character_RigidBody2D.velocity = new Vector2(3, 0);
             return;
         }
 
-        character_RigidBody2D.velocity = new Vector2(horizontalInput * moveSpeed,0);
+        if (character_RigidBody2D.velocity.x <= -3)
+        {
+            character_RigidBody2D.velocity = new Vector2(-3, 0);
+            return;
+        }
+
+        character_RigidBody2D.velocity = new Vector2(horizontalInput * moveSpeed, 0);
 
         //character_RigidBody2D.AddForce(new Vector2(horizontalInput * moveSpeed, 0), ForceMode2D.Impulse);
     }

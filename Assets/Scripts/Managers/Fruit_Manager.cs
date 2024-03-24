@@ -7,7 +7,7 @@ public class Fruit_Manager : MonoBehaviour
     [SerializeField] private int random_FruitCode; // 1 = Apple, 2 = Banana, 3 = BlueBErry 
 
     [SerializeField] private float FruitChangeTime;
-    
+
     [SerializeField] private Sprite[] fruits_Images;
 
     [SerializeField] private SpriteRenderer fruit_SpriteRenderer;
@@ -31,12 +31,12 @@ public class Fruit_Manager : MonoBehaviour
 
     private void RandomCodeGenerator()
     {
-        random_FruitCode = Random.Range(1,4);
+        random_FruitCode = Random.Range(1, 4);
     }
 
     public void CheckCorrectFruit(int Fruit_CodeNumber)
     {
-        if(Fruit_CodeNumber == random_FruitCode)
+        if (Fruit_CodeNumber == random_FruitCode)
         {
             Debug.Log("SAME number");
 

@@ -1,4 +1,3 @@
-using GoogleMobileAds;
 using GoogleMobileAds.Api;
 using UnityEngine;
 
@@ -39,7 +38,6 @@ public class BannerAd : MonoBehaviour
 
         var adRequest = new AdRequest();
 
-        // send the request to load the ad.
         Debug.Log("Loading banner ad.");
         _bannerView.LoadAd(adRequest);
     }

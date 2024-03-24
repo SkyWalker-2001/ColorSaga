@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class EndManager : MonoBehaviour
 {
@@ -17,7 +14,7 @@ public class EndManager : MonoBehaviour
         float score_Pref = PlayerPrefs.GetFloat("ScoreGamePlay", 0);
 
         HighScore_Text.text = "HighSCore: " + $"{highScore_Pref:0}";
-        Score_Text.text = "Score:" + $"{score_Pref:0}";
+        Score_Text.text = "Score: " + $"{score_Pref:0}";
     }
 
 

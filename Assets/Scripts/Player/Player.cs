@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField ]private Player_Controller controller;
+    [SerializeField] private Player_Controller controller;
 
     public static Player player_Instance;
 
@@ -17,13 +14,13 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Destroy(collision.gameObject);
-        
-        if(collision.gameObject.GetComponent<Apple>() != null)
+
+        if (collision.gameObject.GetComponent<Apple>() != null)
         {
             Fruit_Manager.fruit_Manager_Instance.CheckCorrectFruit(1);
         }
 
-        else if(collision.gameObject.GetComponent<Banana>() != null)
+        else if (collision.gameObject.GetComponent<Banana>() != null)
         {
             Fruit_Manager.fruit_Manager_Instance.CheckCorrectFruit(2);
         }
@@ -41,6 +38,6 @@ public class Player : MonoBehaviour
 
         ScoreManager.scoreManager_Instance.SaveScore();
 
-        SceneManager.LoadScene("EndScreen");
+        Panel_Manager.panel_Instance.Activate_Panel_Screen_Panel();
     }
 }
