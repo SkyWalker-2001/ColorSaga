@@ -1,3 +1,4 @@
+using GoogleMobileAds.Api;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -63,7 +64,23 @@ public class Panel_Manager : MonoBehaviour
 
     public void AD_Button()
     {
-        RewardedAdController.rewardedAdController.ShowAd();
+        // Ad Internet Handler
+
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            Debug.Log("No Internert Connected");
+        }
+        else
+        {
+            Debug.Log("Internet is Connected");
+            MobileAds.Initialize((InitializationStatus initStatus) =>
+            {
+                RewardedAdController.rewardedAdController.ShowAd();
+
+            });
+
+        }
+
     }
 
     public void UseCoin_Button()

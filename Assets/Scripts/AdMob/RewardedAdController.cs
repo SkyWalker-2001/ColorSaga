@@ -15,7 +15,13 @@ public class RewardedAdController : MonoBehaviour
 
     // These ad units are configured to always serve test ads.
 #if UNITY_ANDROID
-    private const string _adUnitId = "ca-app-pub-3940256099942544/5224354917";
+
+    // real id
+    //private const string _adUnitId = "ca-app-pub-6968725056779468/3326292834";
+
+    // test id
+    private string _adUnitId = "ca-app-pub-3940256099942544/5224354917";
+
 #elif UNITY_IPHONE
         private const string _adUnitId = "ca-app-pub-3940256099942544/1712485313";
 #else
@@ -30,10 +36,6 @@ public class RewardedAdController : MonoBehaviour
         LoadAd();
     }
 
-
-    /// <summary>
-    /// Loads the ad.
-    /// </summary>
     public void LoadAd()
     {
         // Clean up the old ad before loading a new one.
@@ -77,9 +79,6 @@ public class RewardedAdController : MonoBehaviour
         });
     }
 
-    /// <summary>
-    /// Shows the ad.
-    /// </summary>
     public void ShowAd()
     {
         if (_rewardedAd != null && _rewardedAd.CanShowAd())
@@ -107,9 +106,7 @@ public class RewardedAdController : MonoBehaviour
     }
 
 
-    /// <summary>
-    /// Destroys the ad.
-    /// </summary>
+
     public void DestroyAd()
     {
         if (_rewardedAd != null)
@@ -125,9 +122,6 @@ public class RewardedAdController : MonoBehaviour
 
     }
 
-    /// <summary>
-    /// Logs the ResponseInfo.
-    /// </summary>
     public void LogResponseInfo()
     {
         if (_rewardedAd != null)

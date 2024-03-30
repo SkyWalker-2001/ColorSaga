@@ -6,9 +6,31 @@ public class AD_Init : MonoBehaviour
     public void Start()
     {
         // Initialize the Google Mobile Ads SDK.
-        MobileAds.Initialize((InitializationStatus initStatus) =>
+
+        if (Application.internetReachability == NetworkReachability.NotReachable)
         {
-            // This callback is called once the MobileAds SDK is initialized.
-        });
+            Debug.Log("Error. Check internet connection!");
+        }
+
+        else
+        {
+            MobileAds.Initialize((InitializationStatus initStatus) =>
+            {
+                Debug.Log("Done init");
+            });
+        }
+    }
+
+    private void Update()
+    {
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            Debug.Log("Chalgya");
+        }
+
+        else
+        {
+            Debug.Log("AAGIA");
+        }
     }
 }
