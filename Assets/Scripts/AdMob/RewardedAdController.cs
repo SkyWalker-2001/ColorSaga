@@ -12,6 +12,7 @@ public class RewardedAdController : MonoBehaviour
     /// </summary>
     public GameObject AdLoadedStatus;
     public GameObject Resume_Button;
+    public GameObject noConnection_Text;
 
     // These ad units are configured to always serve test ads.
 #if UNITY_ANDROID
@@ -33,11 +34,14 @@ public class RewardedAdController : MonoBehaviour
     private void Awake()
     {
         rewardedAdController = this;
+        noConnection_Text.SetActive(false);
         LoadAd();
     }
 
     public void LoadAd()
     {
+        Debug.Log("Loades the ad");
+
         // Clean up the old ad before loading a new one.
         if (_rewardedAd != null)
         {
@@ -89,19 +93,21 @@ public class RewardedAdController : MonoBehaviour
                 Debug.Log(String.Format("Rewarded ad granted a reward: {0} {1}",
                                         reward.Amount,
                                         reward.Type));
-
             });
+
+            Resume_Button.SetActive(true);
+
         }
         else
         {
             Debug.LogError("Rewarded ad is not ready yet.");
+            noConnection_Text.SetActive(true);
         }
 
 
         // Inform the UI that the ad is not ready.
         AdLoadedStatus?.SetActive(false);
 
-        Resume_Button.SetActive(true);
 
     }
 

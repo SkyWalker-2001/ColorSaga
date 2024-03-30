@@ -20,6 +20,8 @@ public class Panel_Manager : MonoBehaviour
     [Header("CoinTextHandler")]
     [SerializeField] private TextMeshProUGUI coin_TMP;
 
+    public GameObject noConnection_Text;
+
 
     private void Awake()
     {
@@ -69,14 +71,16 @@ public class Panel_Manager : MonoBehaviour
         if (Application.internetReachability == NetworkReachability.NotReachable)
         {
             Debug.Log("No Internert Connected");
+            noConnection_Text.SetActive(true);
+
         }
         else
         {
             Debug.Log("Internet is Connected");
             MobileAds.Initialize((InitializationStatus initStatus) =>
             {
+                //RewardedAdController.rewardedAdController.LoadAd();
                 RewardedAdController.rewardedAdController.ShowAd();
-
             });
 
         }

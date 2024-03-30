@@ -49,7 +49,7 @@ public class BannerAd : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(_bannerView != null)
+        if(_bannerView == null)
         {
             AD_Handler();
         }
